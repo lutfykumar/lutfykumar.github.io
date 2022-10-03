@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Semua Project - Lutfykumar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="test" />
+  <meta name="keywords" content="test" />
+  <meta content="test" name="author" />
+  <link rel="shortcut icon" href="favicon.svg" />
+
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
+  <link href="css/style.min.css" rel="stylesheet" type="text/css" />
+  <style>
+    .navbar {
+      padding: 10px 0px;
+    }
+
+    .navbar .navbar-nav li a {
+      font-size: 18px;
+    }
+
+    .navbar .btn-project {
+      padding: 5px 20px !important;
+      font-size: 17px !important;
+    }
+
+    .hero-6 {
+      padding: 120px 0 120px
+    }
+
+    .tech-brand {
+      width: 35px;
+      height: auto;
+    }
+
+    .tech-brand-reverse {
+      width: auto;
+      height: 35px;
+    }
+
+    .theme-box {
+      border-radius: 7px;
+      box-shadow: 0 7px 10px 0 rgba(100, 100, 100, 0.26);
+    }
+
+    .theme-box img {
+      border-radius: 7px;
+    }
+
+    .theme-name {
+      text-transform: uppercase;
+      color: #28282e;
+      font-weight: 700;
+    }
+
+    .footer {
+      padding: 10px;
+    }
+
+    .section {
+      padding: 3rem 0 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-6 {
+        padding: 100px 0 30px;
+      }
+
+      .section {
+        padding-top: 30px;
+        padding-bottom: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body data-spy="scroll" data-target="#navbar" data-offset="20">
+  <div id="preloader">
+    <div id="status">
+      <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar">
+    <div class="container">
+      <a class="navbar-brand logo" href="index-1.html">
+        <img src="images/logo-dark.svg" alt="" class="logo-dark" height="28" />
+        <img src="images/logo-light.svg" alt="" class="logo-light" height="28" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="" data-feather="menu"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto navbar-center" id="navbar-navlist">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link active">Beranda</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#contact" class="nav-link">Kontak</a>
+          </li>
+        </ul>
+        <a href="projects.html" class="btn btn-primary btn-project rounded-pill ms-lg-3">Projects</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero-6 bg-center position-relative overflow-hidden"
+    style="background-image: url(images/hero-6-bg.png);" id="home">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-12">
+          <i class="mb-4 icon-lg sw-1_5 text-primary" data-feather="sunrise"></i>
+          <h1 class="font-weight-semibold mb-2 hero-6-title">
+            <b>Semua Projects</b> Project yang pernah dikerjakan
+          </h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-light" id="features">
+    <div class="container">
+      <div class="row" id="area-products">
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" style="background-image: url(images/footer-bg.png);">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="text-center">
+            <p class="text-white-50 f-15 mb-0">
+              <script>
+                document.write(new Date().getFullYear())
+              </script> © <a href="index.html"><img src="images/logo-light.svg" alt="" class="ms-1" height="20" /></a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/smooth-scroll.polyfills.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+  <script src="//unpkg.com/feather-icons"></script>
+  <script>
+    //  Window scroll sticky class add
+    function windowScroll() {
+      const navbar = document.getElementById("navbar");
+      if (
+        document.body.scrollTop >= 50 ||
+        document.documentElement.scrollTop >= 50
+      ) {
+        navbar.classList.add("nav-sticky");
+      } else {
+        navbar.classList.remove("nav-sticky");
+      }
+    }
+
+    window.addEventListener('scroll', (ev) => {
+      ev.preventDefault();
+      windowScroll();
+    })
+
+
+    // Smooth scroll 
+    let scroll = new SmoothScroll('#navbar-navlist a', {
+      speed: 500
+    });
+
+    function fadeIn() {
+      let fade = document.getElementById("error-msg");
+      let opacity = 0;
+      let intervalID = setInterval(function () {
+        if (opacity < 1) {
+          opacity = opacity + 0.5
+          fade.style.opacity = opacity;
+        } else {
+          clearInterval(intervalID);
+        }
+      }, 200);
+    }
+
+    // feather icon
+    feather.replace();
+
+    // Preloader
+    window.onload = function loader() {
+      setTimeout(() => {
+        document.getElementById('preloader').style.visibility = 'hidden';
+        document.getElementById('preloader').style.opacity = '0';
+      }, 350);
+    }
+    const produks = [
+      {
+        name: "Web ERP",
+        author: "Bangchan",
+        images: [
+          {
+            thumb: "https://lipsum.app/id/1/400x250",
+            src: "https://lipsum.app/id/1/1280x720",
+            caption: "Web ERP"
+          }, {
+            thumb: "https://lipsum.app/id/1/400x250",
+            src: "https://lipsum.app/id/1/1280x720",
+            caption: "Web ERP"
+          }, {
+            thumb: "https://lipsum.app/id/1/400x250",
+            src: "https://lipsum.app/id/1/1280x720",
+            caption: "Web ERP"
+          }, {
+            thumb: "https://lipsum.app/id/1/400x250",
+            src: "https://lipsum.app/id/1/1280x720",
+            caption: "Web ERP"
+          }
+        ]
+      }, {
+        name: "Landing Page",
+        author: "Bangchan",
+        images: [
+          {
+            thumb: "https://lipsum.app/id/3/400x250",
+            src: "https://lipsum.app/id/3/1280x720",
+            caption: "Landing Page - Front"
+          }, {
+            thumb: "https://lipsum.app/id/3/400x250",
+            src: "https://lipsum.app/id/3/1280x720",
+            caption: "Landing Page - Mobile"
+          }, {
+            thumb: "https://lipsum.app/id/3/400x250",
+            src: "https://lipsum.app/id/3/1280x720",
+            caption: "Landing Page - Example"
+          }, {
+            thumb: "https://lipsum.app/id/3/400x250",
+            src: "https://lipsum.app/id/3/1280x720",
+            caption: "Landing Page - Static"
+          }
+        ]
+      }
+    ];
+    const areaProducts = document.getElementById('area-products');
+    let appent = '';
+    produks.forEach(function (v, i) {
+      let images = '';
+      v.images.forEach(function (img, no) {
+        if (no == 0) {
+          images += '<a href="' + img.src + '" class="text-dark view-images" data-fancybox="group-' + i + '" data-caption="' + img.caption + '"> <img src="' + img.thumb + '" alt="' + img.caption + '" class="img-fluid mx-auto d-block"> </a>';
+        } else {
+          images += '<div data-src="' + img.src + '" data-fancybox="group-' + i + '" data-thumb="' + img.thumb + '" data-caption="' + img.caption + '"> </div>';
+        }
+      });
+      appent += '<div class="col-lg-4 col-md-6"> <div class="theme-box mt-4">' + images + '</div> <div class="p-3 mt-3 text-center"> <h5 class="theme-name mb-0"> <font style="vertical-align: inherit;"> <font style="vertical-align: inherit;">' + v.name + '</font> </font> </h5> </div> </div>';
+    });
+    areaProducts.innerHTML += appent;
+  </script>
+</body>
+
+</html>
