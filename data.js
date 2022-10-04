@@ -43,5 +43,75 @@ const produks = [
         caption: "SKVET PetShop - Authorization Management"
       }
     ]
+  }, {
+    name: "Simantra Ternak",
+    author: "Bangchan",
+    images: [
+      {
+        thumb: "1R4qFSPf6A3jzWIX6zdn6o5MRsQso_t5z",
+        src: "1R4qFSPf6A3jzWIX6zdn6o5MRsQso_t5z",
+        caption: "Simantra Ternak - Front"
+      }, {
+        thumb: "1bXRuEN7jJy39aBPCkYnaRHX-JgujdmIY",
+        src: "1bXRuEN7jJy39aBPCkYnaRHX-JgujdmIY",
+        caption: "Simantra Ternak - Admin Dashboard"
+      }, {
+        thumb: "1NnLIomdnADhxyFdSru_JiU_CXPBehB_I",
+        src: "1NnLIomdnADhxyFdSru_JiU_CXPBehB_I",
+        caption: "Simantra Ternak - Data Ternak"
+      }, {
+        thumb: "1E30wACShFTFm8SiB_5bOBHD7W4KP7HUZ",
+        src: "1E30wACShFTFm8SiB_5bOBHD7W4KP7HUZ",
+        caption: "Simantra Ternak - Authorization Management"
+      }
+    ]
+  }, {
+    name: "Landing Page",
+    author: "Bangchan",
+    images: [
+      {
+        thumb: "1PUjuHArF3HPYTRWFbbNZwGfOX_UApNNn",
+        src: "1PUjuHArF3HPYTRWFbbNZwGfOX_UApNNn",
+        caption: "Landing Page - Home"
+      }, {
+        thumb: "1sRdcWqT_RVnPvYocbrDw8O75g8abLIyT",
+        src: "1sRdcWqT_RVnPvYocbrDw8O75g8abLIyT",
+        caption: "Landing Page - Services"
+      }, {
+        thumb: "1I3hLV9JQy8JW5Q8KI_CfPxq8FMsA1pYd",
+        src: "1I3hLV9JQy8JW5Q8KI_CfPxq8FMsA1pYd",
+        caption: "Landing Page - Footer"
+      }
+    ]
+  }, {
+    name: "HRL - ERP",
+    author: "Bangchan",
+    images: [
+      {
+        thumb: "1pQX9C6R-fTVifTe3bor7Di9ysiNRMjq-",
+        src: "1pQX9C6R-fTVifTe3bor7Di9ysiNRMjq-",
+        caption: "HRL - ERP - Dashboard"
+      }
+    ]
+  }, {
+    name: "HRL Pelatihan",
+    author: "Bangchan",
+    images: [
+      {
+        thumb: "1Hf1niXsGT4lI_ImVDtORuGFF0xjqYibw",
+        src: "1Hf1niXsGT4lI_ImVDtORuGFF0xjqYibw",
+        caption: "HRL Pelatihan - Dashboard"
+      }
+    ]
+  }, {
+    name: "HRL Perpustakaan",
+    author: "Bangchan",
+    images: [
+      {
+        thumb: "1qR1hIY0ch7ABwIYvQ9y5xlRbZZZ5dQrK",
+        src: "1qR1hIY0ch7ABwIYvQ9y5xlRbZZZ5dQrK",
+        caption: "HRL Perpustakaan - Dashboard"
+      }
+    ]
   }
 ]
