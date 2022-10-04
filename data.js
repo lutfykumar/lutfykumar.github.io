@@ -22,25 +22,25 @@ const produks = [
       }
     ]
   }, {
-    name: "Landing Page",
+    name: "SKVET PetShop",
     author: "Bangchan",
     images: [
       {
-        thumb: "https://lipsum.app/id/3/200x150",
-        src: "https://lipsum.app/id/3/800x600",
-        caption: "Landing Page - Front"
+        thumb: "1vvy4zJTq_HJ861ZkXVce8_Ei9-rXxY88",
+        src: "1vvy4zJTq_HJ861ZkXVce8_Ei9-rXxY88",
+        caption: "SKVET PetShop - Front"
       }, {
-        thumb: "https://lipsum.app/id/3/200x150",
-        src: "https://lipsum.app/id/3/800x600",
-        caption: "Landing Page - Mobile"
+        thumb: "13EWYAgXIPMWsxEMU4zI-sCuWzjGKQYlG",
+        src: "13EWYAgXIPMWsxEMU4zI-sCuWzjGKQYlG",
+        caption: "SKVET PetShop - Admin Dashboard"
       }, {
-        thumb: "https://lipsum.app/id/3/200x150",
-        src: "https://lipsum.app/id/3/800x600",
-        caption: "Landing Page - Example"
+        thumb: "1B6feUyF3_vj9Cwcyqd6nWBd-Tp-belWU",
+        src: "1B6feUyF3_vj9Cwcyqd6nWBd-Tp-belWU",
+        caption: "SKVET PetShop - Periksa Menu"
       }, {
-        thumb: "https://lipsum.app/id/3/200x150",
-        src: "https://lipsum.app/id/3/800x600",
-        caption: "Landing Page - Static"
+        thumb: "1MEXBsAMlGRKchIs0f8qePy2qCNrhbJ9p",
+        src: "1MEXBsAMlGRKchIs0f8qePy2qCNrhbJ9p",
+        caption: "SKVET PetShop - Authorization Management"
       }
     ]
   }
