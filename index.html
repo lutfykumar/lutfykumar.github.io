@@ -204,22 +204,86 @@
           );
       }
 
-      /* Grid pattern */
+      /* Grid pattern - Kinetic Wave (Option 3) */
       .grid-pattern {
-        background-image: linear-gradient(
-            rgba(255, 255, 255, 0.02) 1px,
-            transparent 1px
-          ),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-        background-size: 60px 60px;
+        background-image: radial-gradient(
+          circle,
+          rgba(99, 102, 241, 0.2) 1px,
+          transparent 1px
+        );
+        background-size: 30px 30px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .grid-pattern::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+          rgba(99, 102, 241, 0.15) 0%,
+          transparent 50%
+        );
+        opacity: 0;
+        transition: opacity 0.5s;
+        pointer-events: none;
+      }
+
+      .grid-pattern:hover::before {
+        opacity: 1;
+      }
+
+      /* Animated sweep effect */
+      .grid-pattern::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          transparent 45%,
+          rgba(99, 102, 241, 0.05) 50%,
+          transparent 55%
+        );
+        animation: sweep 10s linear infinite;
+        pointer-events: none;
       }
 
       .light .grid-pattern {
-        background-image: linear-gradient(
-            rgba(0, 0, 0, 0.03) 1px,
-            transparent 1px
-          ),
-          linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+        background-image: radial-gradient(
+          circle,
+          rgba(0, 0, 0, 0.05) 1.2px,
+          transparent 1.2px
+        );
+      }
+
+      .light .grid-pattern::after {
+        background: linear-gradient(
+          45deg,
+          transparent 45%,
+          rgba(0, 0, 0, 0.02) 50%,
+          transparent 55%
+        );
+      }
+
+      @keyframes sweep {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Subtle Geometry Layer */
+      .bg-geometry {
+        background-image: url("images/hero-6-bg-subtle.png");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.4;
       }
 
       /* Theme toggle switch */
@@ -364,7 +428,7 @@
       <div class="container mx-auto px-5 flex items-center justify-between">
         <!-- Logo -->
         <a href="#" class="text-2xl font-extrabold">
-          Lutfi<span class="text-gradient">Kumar</span>
+          Lutfi <span class="text-gradient">Kumar</span>
         </a>
 
         <!-- Desktop Nav -->
