@@ -15,8 +15,8 @@
     <meta name="author" content="Lutfi Kumar" />
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon.svg" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
     <link rel="manifest" href="site.webmanifest" />
 
     <!-- Tailwind CSS CDN -->
@@ -404,6 +404,11 @@
         border-color: #6366f1;
         box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
       }
+
+      /* Fancybox Z-Index Fix */
+      :root {
+        --f-fancybox-z-index: 10000;
+      }
     </style>
   </head>
 
@@ -427,8 +432,17 @@
     >
       <div class="container mx-auto px-5 flex items-center justify-between">
         <!-- Logo -->
-        <a href="#" class="text-2xl font-extrabold">
-          Lutfi <span class="text-gradient">Kumar</span>
+        <a href="/" class="text-2xl font-extrabold flex items-center gap-2">
+          <img
+            src="images/logo-dark.svg"
+            alt="Lutfi Kumar Logo"
+            class="h-10 dark:block hidden"
+          />
+          <img
+            src="images/logo-light.svg"
+            alt="Lutfi Kumar Logo"
+            class="h-10 dark:hidden block"
+          />
         </a>
 
         <!-- Desktop Nav -->
@@ -668,15 +682,28 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     stroke-width="2"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
                   />
                 </svg>
               </a>
               <a
                 href="#contact"
-                class="glass px-8 py-4 rounded-full font-semibold dark:text-white text-dark-700 hover:border-primary-500 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300"
+                class="glass px-8 py-4 rounded-full font-semibold dark:text-white text-dark-700 hover:border-primary-500 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 inline-flex items-center gap-2"
               >
                 Hubungi Saya
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                  />
+                </svg>
               </a>
             </div>
 
@@ -1322,7 +1349,7 @@
             </div>
             <button
               onclick="closeProjectModal()"
-              class="p-2 hover:bg-dark-700/50 rounded-lg transition-colors text-2xl leading-none dark:text-white text-dark-800"
+              class="w-10 h-10 flex items-center justify-center bg-gray-100 dark:bg-dark-800 hover:bg-red-500 hover:text-white rounded-xl transition-all duration-300 text-2xl leading-none dark:text-gray-300 text-dark-800 shadow-sm"
             >
               &times;
             </button>
@@ -1555,8 +1582,9 @@
       displayProjects.forEach((project, index) => {
         const actualIndex = produks.length - 1 - index; // Get original index
         const firstImage = project.images[0];
-        const imageUrl = embed + firstImage.thumb;
-        const category = project.category || "web";
+        const imageUrl =
+          "images/projects/" + project.alias + "/thumb/" + firstImage.src;
+        const category = project.category || "Web";
 
         const projectCard = `
         <div class="group relative rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer" onclick="openProjectModal(${actualIndex})">
@@ -1601,7 +1629,8 @@
 
         // Main image
         const mainImage = document.getElementById("modalMainImage");
-        mainImage.src = embed + project.images[0].src;
+        mainImage.src =
+          "images/projects/" + project.alias + "/" + project.images[0].src;
         mainImage.alt = project.name;
 
         // Thumbnails
@@ -1609,7 +1638,9 @@
         thumbContainer.innerHTML = project.images
           .map(
             (img, i) => `
-          <img src="${embed}${img.thumb}" alt="${img.caption}"
+          <img src="images/projects/${project.alias}/thumb/${img.src}" alt="${
+              img.caption
+            }"
                class="modal-gallery-thumb ${i === 0 ? "active" : ""}"
                onclick="changeMainImage(${index}, ${i})">
         `
@@ -1660,7 +1691,11 @@
       function changeMainImage(projectIndex, imageIndex) {
         const project = produks[projectIndex];
         const mainImage = document.getElementById("modalMainImage");
-        mainImage.src = embed + project.images[imageIndex].src;
+        mainImage.src =
+          "images/projects/" +
+          project.alias +
+          "/" +
+          project.images[imageIndex].src;
 
         // Update active thumbnail
         document
@@ -1675,8 +1710,8 @@
         const project = produks[currentProjectIndex];
 
         const galleryItems = project.images.map((img) => ({
-          src: embed + img.src,
-          thumb: embed + img.thumb,
+          src: "images/projects/" + project.alias + "/" + img.src,
+          thumb: "images/projects/" + project.alias + "/thumb/" + img.src,
           caption: img.caption,
         }));
 
