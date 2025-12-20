@@ -409,6 +409,9 @@
       :root {
         --f-fancybox-z-index: 10000;
       }
+      .fancybox__container {
+        z-index: 10000 !important;
+      }
     </style>
   </head>
 
@@ -1332,10 +1335,7 @@
             class="sticky top-0 dark:bg-dark-900/95 bg-white/95 backdrop-blur-sm flex justify-between items-start p-6 border-b dark:border-dark-700 border-gray-200 z-10"
           >
             <div>
-              <h3
-                id="modalTitle"
-                class="text-2xl md:text-3xl font-bold mb-1"
-              ></h3>
+              <h3 id="modalTitle" class="text-2xl font-bold mb-1"></h3>
               <div class="flex items-center gap-3">
                 <span
                   id="modalCategory"
@@ -1368,7 +1368,29 @@
                     class="w-full aspect-video object-cover rounded-xl"
                   />
                 </div>
-                <div id="modalThumbnails" class="grid grid-cols-4 gap-3"></div>
+                <div
+                  id="modalThumbnails"
+                  class="grid grid-cols-4 gap-3 mb-4"
+                ></div>
+                <button
+                  onclick="openGalleryFromModal()"
+                  class="w-full px-6 py-3 rounded-xl font-semibold border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white transition-all duration-300 inline-flex items-center justify-center gap-2"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
+                  Lihat Semua Gambar
+                </button>
               </div>
 
               <!-- Info -->
@@ -1422,52 +1444,6 @@
                 </div>
               </div>
             </div>
-          </div>
-
-          <!-- Footer -->
-          <div
-            class="p-6 border-t dark:border-dark-700 border-gray-200 flex flex-wrap gap-4"
-          >
-            <a
-              id="modalDemoBtn"
-              href="#"
-              target="_blank"
-              class="btn-gradient text-white px-6 py-3 rounded-full font-semibold inline-flex items-center gap-2 hidden"
-            >
-              <svg
-                class="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-              Live Demo
-            </a>
-            <button
-              onclick="openGalleryFromModal()"
-              class="glass px-6 py-3 rounded-full font-semibold dark:text-white text-dark-700 inline-flex items-center gap-2 hover:border-primary-500 transition-all"
-            >
-              <svg
-                class="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-              Lihat Semua Gambar
-            </button>
           </div>
         </div>
       </div>
@@ -1667,15 +1643,6 @@
           )
           .join("");
 
-        // Demo button
-        const demoBtn = document.getElementById("modalDemoBtn");
-        if (project.demoUrl) {
-          demoBtn.href = project.demoUrl;
-          demoBtn.classList.remove("hidden");
-        } else {
-          demoBtn.classList.add("hidden");
-        }
-
         // Show modal
         modal.classList.remove("hidden");
         document.body.style.overflow = "hidden";
@@ -1715,8 +1682,20 @@
           caption: img.caption,
         }));
 
+        // Hide modal temporarily
+        const modal = document.getElementById("projectModal");
+        modal.classList.add("hidden");
+
         Fancybox.show(galleryItems, {
           Thumbs: { autoStart: true },
+          on: {
+            destroy: () => {
+              // Show modal back when gallery is closed
+              if (currentProjectIndex !== null) {
+                modal.classList.remove("hidden");
+              }
+            },
+          },
         });
       }
 
